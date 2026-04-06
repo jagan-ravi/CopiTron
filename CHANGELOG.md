@@ -41,7 +41,6 @@ All notable changes to this project will be documented in this file.
   - `get_connection_status` — reports the current connection status
   - Four additional tools exposing already-captured Reactotron data (async storage, state, network, logs)
 - **MCP Prompts** — Built-in prompts to guide common Reactotron workflows
-- **Claude Plugin Manifest** — Added manifest for Claude integration
 - **LICENSE** — Added project license
 
 ### Documentation

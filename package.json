@@ -1,6 +1,6 @@
 {
   "name": "copitron",
-  "displayName": "Copitron",
+  "displayName": "Reactotron MCP Proxy",
   "version": "0.1.0",
   "description": "VS Code/Cursor extension that acts as a proxy for Reactotron, exposes its new MCP (Model Context Protocol) server functions (logs, state inspection, network monitoring, custom commands, etc.), and makes them directly usable by Copilot / AI coding assistants.",
   "publisher": "JaganRavi",

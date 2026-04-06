@@ -62,6 +62,16 @@
           "default": 5000,
           "description": "Timeout in milliseconds for state query requests."
         },
+        "reactotron.adbReversePort": {
+          "type": "number",
+          "default": 9091,
+          "description": "Port to reverse-forward over ADB (adb reverse tcp:<port> tcp:<port>)."
+        },
+        "reactotron.adbReverseAutoEnable": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically run `adb reverse` for the configured port when the extension activates."
+        },
         "reactotron.autoStart": {
           "type": "boolean",
           "default": true,
@@ -89,6 +99,11 @@
       {
         "command": "reactotron-mcp.showConnectionInfo",
         "title": "Reactotron: Show Connection Info"
+      }
+      ,
+      {
+        "command": "reactotron-mcp.adbReverse",
+        "title": "Reactotron: ADB Reverse TCP"
       }
     ],
     "chatParticipants": [

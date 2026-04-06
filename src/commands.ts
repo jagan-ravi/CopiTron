@@ -63,4 +63,19 @@ export function registerCommands(
       vscode.window.showInformationMessage(lines.join(" | "))
     }),
   )
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("reactotron-mcp.adbReverse", () => {
+      const config = vscode.workspace.getConfiguration("reactotron")
+      const port = config.get<number>("adbReversePort", 9091)
+      try {
+        const execSync = require("child_process").execSync
+        const cmd = `adb reverse tcp:${port} tcp:${port}`
+        execSync(cmd)
+        vscode.window.showInformationMessage(`adb reverse configured for port ${port}`)
+      } catch (e: any) {
+        vscode.window.showErrorMessage(`adb reverse failed: ${e?.message || e}`)
+      }
+    }),
+  )
 }

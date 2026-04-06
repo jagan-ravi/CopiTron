@@ -22,6 +22,8 @@ function readConfig() {
     proxyPort: config.get<number>("proxyPort", 9091),
     reactotronPort: config.get<number>("reactotronPort", 9090),
     timeout: config.get<number>("timeout", 5000),
+    adbReversePort: config.get<number>("adbReversePort", 9091),
+    adbReverseAutoEnable: config.get<boolean>("adbReverseAutoEnable", false),
     autoStart: config.get<boolean>("autoStart", true),
   }
 }
@@ -64,6 +66,19 @@ export function activate(context: vscode.ExtensionContext): void {
 
   if (cfg.autoStart) {
     startProxy()
+  }
+
+  // Optionally run adb reverse for the configured port
+  if (cfg.adbReverseAutoEnable) {
+    try {
+      const adb = require("child_process").execSync
+      const cmd = `adb reverse tcp:${cfg.adbReversePort} tcp:${cfg.adbReversePort}`
+      log(`Running: ${cmd}`)
+      adb(cmd)
+      log(`ADB reverse configured for port ${cfg.adbReversePort}`)
+    } catch (e: any) {
+      log(`ADB reverse failed: ${e?.message || e}`)
+    }
   }
 
   // Use getters so tools/participant always see the current proxy, even after restart

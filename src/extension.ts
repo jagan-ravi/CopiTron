@@ -23,7 +23,7 @@ function readConfig() {
     reactotronPort: config.get<number>("reactotronPort", 9090),
     timeout: config.get<number>("timeout", 5000),
     adbReversePort: config.get<number>("adbReversePort", 9091),
-    adbReverseAutoEnable: config.get<boolean>("adbReverseAutoEnable", false),
+    adbReverseAutoEnable: config.get<boolean>("adbReverseAutoEnable", true),
     autoStart: config.get<boolean>("autoStart", true),
   }
 }

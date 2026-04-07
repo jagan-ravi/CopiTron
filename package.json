@@ -1,7 +1,7 @@
 {
   "name": "reactotron-mcp-proxy",
   "displayName": "Reactotron MCP Proxy",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "VS Code/Cursor extension that acts as a proxy for Reactotron, exposes its new MCP (Model Context Protocol) server functions (logs, state inspection, network monitoring, custom commands, etc.), and makes them directly usable by Copilot / AI coding assistants.",
   "publisher": "JaganRavi",
   "icon": "images/icon.png",
@@ -41,7 +41,8 @@
     "build": "node esbuild.mjs",
     "watch": "node esbuild.mjs --watch",
     "typecheck": "tsc --noEmit",
-    "package": "vsce package"
+    "package": "vsce package",
+    "makeBuild": "npx @vscode/vsce package"
   },
   "contributes": {
     "configuration": {
